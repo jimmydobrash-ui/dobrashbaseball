@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #080808;
+  color: #f0f0f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(94, 203, 220, 0.25);
+  color: #fff;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.09;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-diamond text-coal font-display font-bold tracking-[0.15em] uppercase px-10 py-4 text-sm inline-block transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-primary:hover {
+    @apply bg-diamond-light;
+    box-shadow: 0 0 32px rgba(94, 203, 220, 0.3);
+  }
+
+  .btn-outline {
+    @apply border border-diamond text-diamond font-display font-bold tracking-[0.15em] uppercase px-8 py-3 text-xs inline-block transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-outline:hover {
+    @apply bg-diamond/10;
+  }
+
+  .section-label {
+    @apply text-diamond font-display font-semibold tracking-[0.2em] text-xs uppercase block;
+  }
+}
