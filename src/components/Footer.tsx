@@ -31,10 +31,10 @@ export default function Footer() {
             Contact
           </p>
           <a
-            href="mailto:jimmydobrash@gmail.com"
+            href="mailto:dobrashbaseball@gmail.com"
             className="text-silver font-body text-sm hover:text-diamond transition-colors duration-200"
           >
-            jimmydobrash@gmail.com
+            dobrashbaseball@gmail.com
           </a>
           <p className="text-iron text-[10px] font-body mt-5 tracking-wide">
             &copy; {year} DoDiDe LLC. All rights reserved.

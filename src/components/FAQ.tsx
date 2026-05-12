@@ -119,7 +119,7 @@ export default function FAQ() {
             </p>
           </div>
           <a
-            href="mailto:jimmydobrash@gmail.com"
+            href="mailto:dobrashbaseball@gmail.com"
             className="btn-outline flex-shrink-0 text-xs"
           >
             Email Jimmy

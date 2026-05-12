@@ -137,10 +137,10 @@ export default function Pricing() {
           <p className="text-mist font-body text-xs tracking-wide flex-shrink-0">
             Questions?{" "}
             <a
-              href="mailto:jimmydobrash@gmail.com"
+              href="mailto:dobrashbaseball@gmail.com"
               className="text-diamond hover:text-diamond-light transition-colors duration-200"
             >
-              jimmydobrash@gmail.com
+              dobrashbaseball@gmail.com
             </a>
           </p>
         </div>

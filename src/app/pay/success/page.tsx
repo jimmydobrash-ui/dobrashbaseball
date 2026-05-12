@@ -80,10 +80,10 @@ export default function PaySuccessPage() {
           <p className="text-mist text-xs font-body tracking-wide mb-6">
             Questions? Email{" "}
             <a
-              href="mailto:jimmydobrash@gmail.com"
+              href="mailto:dobrashbaseball@gmail.com"
               className="text-silver hover:text-diamond transition-colors duration-200"
             >
-              jimmydobrash@gmail.com
+              dobrashbaseball@gmail.com
             </a>
           </p>
 
