@@ -6,7 +6,7 @@ import { useState, FormEvent, useEffect } from "react";
 // Once you create your Calendly account, replace this URL with your real link.
 // Example: https://calendly.com/jimmydobrash/intro-call
 // ─────────────────────────────────────────────────────────────────────────────
-const CALENDLY_URL = "https://calendly.com/dobrashbaseball";
+const CALENDLY_URL = "https://calendly.com/dobrashbaseball/30min";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzdobjoe";
 
