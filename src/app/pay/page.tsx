@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
 
 const included = [
   "Custom player development programming",
@@ -12,6 +9,9 @@ const included = [
   "Direct access to your coach",
 ];
 
+const MONTHLY_URL = "https://pay.bluevine.com/p/8545687bece24ba2a8aecdaf8df240b0";
+const ANNUAL_URL = "https://pay.bluevine.com/p/a75dcf08516c4af3bb76a2073b1518b8";
+
 function PricingCard({
   label,
   price,
@@ -19,7 +19,7 @@ function PricingCard({
   billing,
   badge,
   savings,
-  plan,
+  url,
   highlight,
 }: {
   label: string;
@@ -28,34 +28,9 @@ function PricingCard({
   billing: string;
   badge?: string;
   savings?: string;
-  plan: "monthly" | "annual";
+  url: string;
   highlight: boolean;
 }) {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleCheckout = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan }),
-      });
-      const data = await res.json();
-      if (!res.ok || data.error) {
-        setError(data.error ?? "Something went wrong. Please try again.");
-        setLoading(false);
-        return;
-      }
-      window.location.href = data.url;
-    } catch {
-      setError("Connection error. Please try again.");
-      setLoading(false);
-    }
-  };
-
   return (
     <div
       className={`relative flex flex-col p-8 sm:p-10 ${
@@ -93,26 +68,21 @@ function PricingCard({
 
       <div className={savings ? "" : "mb-6"} />
 
-      <button
-        onClick={handleCheckout}
-        disabled={loading}
-        className={`w-full font-display font-bold tracking-[0.15em] uppercase py-4 text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed mb-4 ${
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`w-full font-display font-bold tracking-[0.15em] uppercase py-4 text-sm transition-all duration-200 text-center ${
           highlight
             ? "bg-diamond text-coal hover:bg-diamond-light"
             : "bg-iron text-white hover:bg-iron/70 border border-iron"
         }`}
         style={
-          highlight && !loading
-            ? { boxShadow: "0 0 28px rgba(94,203,220,0.2)" }
-            : {}
+          highlight ? { boxShadow: "0 0 28px rgba(94,203,220,0.2)" } : {}
         }
       >
-        {loading ? "Redirecting to Stripe..." : "Get Started"}
-      </button>
-
-      {error && (
-        <p className="text-red-400 text-xs font-body text-center">{error}</p>
-      )}
+        Get Started
+      </a>
     </div>
   );
 }
@@ -145,7 +115,7 @@ export default function PayPage() {
           </h1>
           <p className="text-silver font-body font-light text-base leading-relaxed max-w-lg mx-auto">
             You&apos;ve been approved. Select the plan that works best for you
-            and complete your payment securely through Stripe.
+            and complete your payment securely.
           </p>
         </div>
 
@@ -156,7 +126,7 @@ export default function PayPage() {
             price="$250"
             period="month"
             billing="Billed monthly · Renews automatically"
-            plan="monthly"
+            url={MONTHLY_URL}
             highlight={false}
           />
           <PricingCard
@@ -166,7 +136,7 @@ export default function PayPage() {
             billing="Billed annually · Renews after 365 days"
             badge="Best Value"
             savings="Save $1,000 vs monthly"
-            plan="annual"
+            url={ANNUAL_URL}
             highlight={true}
           />
         </div>
@@ -194,10 +164,8 @@ export default function PayPage() {
 
         {/* Secure payment note */}
         <p className="text-mist text-xs font-body text-center tracking-wide">
-          Payments are processed securely by{" "}
-          <span className="text-silver">Stripe</span>. Your card information is
-          never stored on this site. You can cancel or manage your subscription
-          at any time.
+          Payments are processed securely. Your card information is never stored
+          on this site. You can cancel or manage your subscription at any time.
         </p>
       </main>
     </div>
