@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent, useEffect } from "react";
+import Link from "next/link";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Once you create your Calendly account, replace this URL with your real link.
@@ -271,6 +272,74 @@ export default function ApplicationForm() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Consent / Agreement */}
+            <div className="border-t border-iron pt-8">
+              <label htmlFor="consent" className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  id="consent"
+                  name="consent"
+                  type="checkbox"
+                  required
+                  className="mt-1 w-4 h-4 flex-shrink-0 accent-diamond cursor-pointer"
+                />
+                <span className="text-silver font-body text-xs leading-relaxed">
+                  I have read and agree to the{" "}
+                  <Link
+                    href="/terms"
+                    target="_blank"
+                    className="text-diamond underline underline-offset-2 hover:text-diamond-light"
+                  >
+                    Terms of Service
+                  </Link>
+                  ,{" "}
+                  <Link
+                    href="/privacy"
+                    target="_blank"
+                    className="text-diamond underline underline-offset-2 hover:text-diamond-light"
+                  >
+                    Privacy Policy
+                  </Link>
+                  , and{" "}
+                  <Link
+                    href="/waiver"
+                    target="_blank"
+                    className="text-diamond underline underline-offset-2 hover:text-diamond-light"
+                  >
+                    Liability Waiver &amp; Assumption of Risk
+                  </Link>
+                  . For players under 18, I confirm I am the parent or legal
+                  guardian, I&apos;m submitting this application on the
+                  player&apos;s behalf, and I&apos;m consenting to these
+                  documents for the player as well.{" "}
+                  <span className="text-diamond">*</span>
+                </span>
+              </label>
+            </div>
+
+            {/* Trust strip */}
+            <div className="border border-iron bg-coal px-5 py-4 flex items-start gap-3">
+              <svg
+                className="w-4 h-4 text-diamond flex-shrink-0 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                />
+              </svg>
+              <p className="text-mist font-body text-xs leading-relaxed">
+                <span className="text-silver">Your information is safe.</span>{" "}
+                We never sell or share your data. Submissions are encrypted in
+                transit, payment data is processed by Bluevine (we don&apos;t
+                store cards), and you can request deletion of your data at any
+                time.
+              </p>
             </div>
 
             {/* Review timeline note */}
