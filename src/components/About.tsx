@@ -19,8 +19,8 @@ export default function About() {
               <div className="absolute -bottom-3 -right-3 w-7 h-7 border-b-2 border-r-2 border-diamond z-10" />
               <div className="aspect-[4/5] border border-iron/60 relative overflow-hidden">
                 <Image
-                  src="/photo-hero.jpg"
-                  alt="Jimmy Dobrash on the mound"
+                  src="/website_2nd_picture.JPG"
+                  alt="Jimmy Dobrash pitching on the mound"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 90vw, 360px"
