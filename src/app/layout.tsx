@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -42,6 +43,19 @@ export default function RootLayout({
       >
         {children}
       </body>
+      {/* Google Analytics */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-R5LSRE5L0B"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-R5LSRE5L0B');
+        `}
+      </Script>
     </html>
   );
 }
