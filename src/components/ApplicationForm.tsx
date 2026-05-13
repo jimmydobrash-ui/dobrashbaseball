@@ -42,6 +42,8 @@ export default function ApplicationForm() {
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+  const [age, setAge] = useState<number | null>(null);
+  const isMinor = age !== null && age < 18;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -177,6 +179,7 @@ export default function ApplicationForm() {
                   max={99}
                   placeholder="e.g. 17"
                   className={inputCls}
+                  onChange={(e) => setAge(e.target.value ? parseInt(e.target.value) : null)}
                 />
               </div>
               <div>
@@ -224,55 +227,57 @@ export default function ApplicationForm() {
               />
             </div>
 
-            {/* Parent / guardian block */}
-            <div className="border-t border-iron pt-8">
-              <p className="font-display font-bold text-diamond text-[10px] uppercase tracking-[0.18em] mb-6">
-                Parent / Guardian Information — Required for Players Under 18
-              </p>
-              <div className="space-y-6">
-                <div>
-                  <label className={labelCls} htmlFor="parent_name">
-                    Parent / Guardian Name *
-                  </label>
-                  <input
-                    id="parent_name"
-                    name="parent_name"
-                    type="text"
-                    required
-                    placeholder="Full Name"
-                    className={inputCls}
-                  />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Parent / guardian block — only shown for players under 18 */}
+            {isMinor && (
+              <div className="border-t border-iron pt-8">
+                <p className="font-display font-bold text-diamond text-[10px] uppercase tracking-[0.18em] mb-6">
+                  Parent / Guardian Information — Required for Players Under 18
+                </p>
+                <div className="space-y-6">
                   <div>
-                    <label className={labelCls} htmlFor="parent_email">
-                      Email *
+                    <label className={labelCls} htmlFor="parent_name">
+                      Parent / Guardian Name *
                     </label>
                     <input
-                      id="parent_email"
-                      name="parent_email"
-                      type="email"
+                      id="parent_name"
+                      name="parent_name"
+                      type="text"
                       required
-                      placeholder="email@example.com"
+                      placeholder="Full Name"
                       className={inputCls}
                     />
                   </div>
-                  <div>
-                    <label className={labelCls} htmlFor="parent_phone">
-                      Phone *
-                    </label>
-                    <input
-                      id="parent_phone"
-                      name="parent_phone"
-                      type="tel"
-                      required
-                      placeholder="(555) 000-0000"
-                      className={inputCls}
-                    />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className={labelCls} htmlFor="parent_email">
+                        Email *
+                      </label>
+                      <input
+                        id="parent_email"
+                        name="parent_email"
+                        type="email"
+                        required
+                        placeholder="email@example.com"
+                        className={inputCls}
+                      />
+                    </div>
+                    <div>
+                      <label className={labelCls} htmlFor="parent_phone">
+                        Phone *
+                      </label>
+                      <input
+                        id="parent_phone"
+                        name="parent_phone"
+                        type="tel"
+                        required
+                        placeholder="(555) 000-0000"
+                        className={inputCls}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Consent / Agreement */}
             <div className="border-t border-iron pt-8">
@@ -336,8 +341,7 @@ export default function ApplicationForm() {
               <p className="text-mist font-body text-xs leading-relaxed">
                 <span className="text-silver">Your information is safe.</span>{" "}
                 We never sell or share your data. Submissions are encrypted in
-                transit, payment data is processed by Bluevine (we don&apos;t
-                store cards), and you can request deletion of your data at any
+                transit, and you can request deletion of your data at any
                 time.
               </p>
             </div>
