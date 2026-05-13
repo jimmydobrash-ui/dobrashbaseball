@@ -1,23 +1,25 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // TESTIMONIALS
-// Jimmy: swap the placeholder quotes below with real ones from your players/parents.
+// Jimmy: replace the two placeholder entries below with real quotes when ready.
 // Each entry needs: quote, name, role (e.g. "Parent — 16U Catcher")
 // ─────────────────────────────────────────────────────────────────────────────
 
 const testimonials = [
   {
     quote:
-      "Working with Jimmy completely changed how my son approaches the game. His mechanics improved within the first month, and more importantly, his confidence at the plate went through the roof. Worth every penny.",
-    name: "Mike R.",
-    role: "Parent — 16U Catcher",
+      "Jimmy has been a game-changer for my son. At 12 years old he came to him with already established mechanics, and instead of overhauling them, Jimmy built on what was already there — increasing his velocity, sharpening his accuracy, and expanding his overall pitching ability. Even more important, Jimmy has boosted my son's confidence on and off the mound through clear instruction, encouragement, and a tailored approach that respected his development. We've seen measurable improvement and a newfound love for the game. The icing on the cake is Jimmy's non-negotiable dedication to arm care. We feel confident knowing that he is looking out for our son's physical health and safety so that he can play the game for many years to come. I couldn't recommend Jimmy more.",
+    name: "Nicole G.",
+    role: "Parent — 12U Pitcher",
   },
   {
+    // PLACEHOLDER — replace with a real testimonial
     quote:
       "I was skeptical about remote coaching at first. Two months in and it's more focused and effective than any in-person instruction I've had. The video breakdowns alone are worth it — Jimmy sees things nobody else caught.",
     name: "Tyler M.",
     role: "College Freshman — RHP",
   },
   {
+    // PLACEHOLDER — replace with a real testimonial
     quote:
       "Jimmy doesn't hand you a list of drills and call it a program. He actually builds something around your kid specifically. My son has a plan every single week and he's bought in because he knows exactly what he's working toward.",
     name: "David K.",
