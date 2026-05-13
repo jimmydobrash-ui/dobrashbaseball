@@ -69,7 +69,7 @@ export default function ApplicationForm() {
   };
 
   return (
-    <section id="apply" className="bg-graphite py-24 px-6 sm:px-10">
+    <section id="apply" className="bg-coal py-24 px-6 sm:px-10">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -82,7 +82,7 @@ export default function ApplicationForm() {
           <p className="text-silver font-body font-light text-base leading-relaxed mb-4">
             Fill this out and I&apos;ll review your application personally.
             Right after submitting, you&apos;ll choose a time for a free
-            20-minute intro call.
+            30-minute intro call.
           </p>
           {/* Price reminder */}
           <div className="flex items-center gap-6 border border-iron bg-coal px-5 py-3 mt-6">
@@ -139,7 +139,7 @@ export default function ApplicationForm() {
                 Book Your Intro Call.
               </h3>
               <p className="text-silver font-body font-light text-sm leading-relaxed mb-8">
-                Pick a time that works for you. The call is free, takes 20
+                Pick a time that works for you. The call is free, takes 30
                 minutes, and happens on Google Meet. I&apos;ll be prepared with
                 your application — come with your questions.
               </p>

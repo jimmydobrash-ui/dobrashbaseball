@@ -29,7 +29,7 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="bg-coal py-24 px-6 sm:px-10">
+    <section id="pricing" className="bg-graphite py-24 px-6 sm:px-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-14">
@@ -47,7 +47,7 @@ export default function Pricing() {
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-iron mb-12">
           {/* Monthly */}
-          <div className="bg-coal p-10 flex flex-col">
+          <div className="bg-graphite p-10 flex flex-col">
             <p className="section-label mb-6">Monthly</p>
             <div className="flex items-end gap-2 mb-1">
               <span className="font-display font-black text-white text-[4.5rem] leading-none">

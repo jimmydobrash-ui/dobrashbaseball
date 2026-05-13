@@ -23,7 +23,7 @@ function DiamondCheck() {
 
 export default function WhoThisIsFor() {
   return (
-    <section id="who" className="bg-graphite py-24 px-6 sm:px-10">
+    <section id="who" className="bg-coal py-24 px-6 sm:px-10">
       <div className="max-w-7xl mx-auto">
         <div className="mb-14">
           <span className="section-label mb-4">Ideal Player</span>

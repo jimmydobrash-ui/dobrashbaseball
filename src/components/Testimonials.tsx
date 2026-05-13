@@ -41,7 +41,7 @@ function QuoteIcon() {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-graphite py-24 px-6 sm:px-10">
+    <section id="testimonials" className="bg-coal py-24 px-6 sm:px-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-14">
@@ -57,7 +57,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-graphite p-10 flex flex-col gap-6 relative"
+              className="bg-coal p-10 flex flex-col gap-6 relative"
             >
               {/* Top accent line on first card */}
               {i === 0 && (

@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "When does payment happen?",
     answer:
-      "Payment is collected only after you've been approved — never before. Here's the order: you apply, book a free 20-minute intro call, we connect, and I confirm fit. Once approved, you'll receive a secure link to complete enrollment and choose your plan. You're never charged just for applying or having the call.",
+      "Payment is collected only after you've been approved — never before. Here's the order: you apply, book a free 30-minute intro call, we connect, and I confirm fit. Once approved, you'll receive a secure link to complete enrollment and choose your plan. You're never charged just for applying or having the call.",
   },
   {
     question: "What makes this better than finding a local coach?",
@@ -63,7 +63,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="bg-coal py-24 px-6 sm:px-10">
+    <section id="faq" className="bg-graphite py-24 px-6 sm:px-10">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="mb-14">

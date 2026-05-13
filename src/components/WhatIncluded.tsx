@@ -41,7 +41,7 @@ function DiamondIcon() {
 
 export default function WhatIncluded() {
   return (
-    <section id="services" className="bg-coal py-24 px-6 sm:px-10">
+    <section id="services" className="bg-graphite py-24 px-6 sm:px-10">
       <div className="max-w-7xl mx-auto">
         <div className="mb-14">
           <span className="section-label mb-4">What You Get</span>
@@ -55,7 +55,7 @@ export default function WhatIncluded() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-coal p-8 group hover:bg-graphite transition-colors duration-300"
+              className="bg-graphite p-8 group hover:bg-coal transition-colors duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <DiamondIcon />

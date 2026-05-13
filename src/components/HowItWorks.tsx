@@ -9,7 +9,7 @@ const steps = [
     number: "02",
     title: "Book Your Intro Call",
     description:
-      "Right after applying, you'll choose a time for a free 20-minute Google Meet. This is where we get to know each other — you'll ask me anything, I'll learn more about your game, and we'll make sure this is the right fit.",
+      "Right after applying, you'll choose a time for a free 30-minute Google Meet. This is where we get to know each other — you'll ask me anything, I'll learn more about your game, and we'll make sure this is the right fit.",
   },
   {
     number: "03",
