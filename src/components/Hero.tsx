@@ -1,36 +1,92 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 
+const navLinks = [
+  { label: "About", id: "about" },
+  { label: "Services", id: "services" },
+  { label: "Pricing", id: "pricing" },
+  { label: "FAQ", id: "faq" },
+];
+
 export default function Hero() {
-  const scrollToForm = () => {
-    document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
   };
 
-  const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollToForm = () => scrollTo("apply");
+  const scrollToAbout = () => scrollTo("about");
 
   return (
     <>
       {/* Sticky Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 sm:px-10 py-3 flex items-center justify-between border-b border-white/5 bg-coal/85 backdrop-blur-sm">
-        <div className="flex items-center gap-3">
-          <Image
-            src="/logo.png"
-            alt="Dobrash Diamond Development logo"
-            width={44}
-            height={44}
-            className="object-contain"
-            priority
-          />
-          <span className="font-display font-bold text-white text-xl tracking-[0.12em] uppercase hidden sm:block">
-            Dobrash Diamond Development
-          </span>
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-coal/85 backdrop-blur-sm">
+        <div className="px-6 sm:px-10 py-3 flex items-center justify-between">
+          {/* Logo + Brand */}
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo.png"
+              alt="Dobrash Diamond Development logo"
+              width={44}
+              height={44}
+              className="object-contain"
+              priority
+            />
+            <span className="font-display font-bold text-white text-xl tracking-[0.12em] uppercase hidden sm:block">
+              Dobrash Diamond Development
+            </span>
+          </div>
+
+          {/* Desktop nav links */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollTo(link.id)}
+                className="font-display font-bold text-silver text-xs uppercase tracking-[0.15em] hover:text-diamond transition-colors duration-200"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Right side: Apply Now + mobile hamburger */}
+          <div className="flex items-center gap-4">
+            <button onClick={scrollToForm} className="btn-outline text-xs">
+              Apply Now
+            </button>
+            {/* Hamburger — mobile/tablet only */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden flex flex-col justify-center gap-[5px] w-6 h-6"
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+            >
+              <span className={`block h-px bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
+              <span className={`block h-px bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`block h-px bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
+            </button>
+          </div>
         </div>
-        <button onClick={scrollToForm} className="btn-outline text-xs">
-          Apply Now
-        </button>
+
+        {/* Mobile dropdown menu */}
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-64" : "max-h-0"}`}>
+          <div className="flex flex-col border-t border-white/5 px-6 py-4 gap-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollTo(link.id)}
+                className="font-display font-bold text-silver text-xs uppercase tracking-[0.15em] hover:text-diamond transition-colors duration-200 text-left py-3 border-b border-white/5 last:border-0"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+        </div>
       </nav>
 
       {/* Hero */}
