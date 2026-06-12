@@ -12,11 +12,10 @@ const testimonials = [
     role: "Parent — 12U Pitcher",
   },
   {
-    // PLACEHOLDER — replace with a real testimonial
     quote:
-      "I was skeptical about remote coaching at first. Two months in and it's more focused and effective than any in-person instruction I've had. The video breakdowns alone are worth it — Jimmy sees things nobody else caught.",
-    name: "Tyler M.",
-    role: "College Freshman — RHP",
+      "We can\u2019t recommend Coach Jimmy highly enough. He has worked with our 13-year-old for the past three years, and the progress has been incredible to watch. He brings a consistently positive attitude and focuses on helping each player improve, regardless of their starting point. Coach Jimmy has a great ability to fine-tune mechanics in a way that is easy for young athletes to understand and apply. The technology and training tools he uses are truly next level and have made a noticeable impact on development and performance. Coach Jimmy\u2019s dedication for arm care and recovery is also so important for this age and pitching sustainability. Beyond the technical side, he genuinely cares about his players and creates an encouraging environment that builds both confidence and skill. We are extremely grateful for Coach Jimmy.",
+    name: "Andrea M.",
+    role: "Parent \u2014 13U Pitcher",
   },
   {
     // PLACEHOLDER — replace with a real testimonial
