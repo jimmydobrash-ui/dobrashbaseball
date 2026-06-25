@@ -1,5 +1,7 @@
 "use client";
 
+import { track } from "@/lib/analytics";
+
 const features = [
   "Custom player development programming",
   "Video analysis & mechanical breakdown",
@@ -25,6 +27,8 @@ function CheckIcon() {
 
 export default function Pricing() {
   const scrollToForm = () => {
+    track.ctaClick("pricing");
+    track.applyStart("pricing");
     document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
   };
 

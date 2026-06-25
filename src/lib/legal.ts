@@ -20,8 +20,8 @@ export const LEGAL = {
   // file with the state — so it's safe and appropriate to list here.
   mailingAddress: {
     line1: "c/o Colorado Registered Agent",
-    line2: "[REGISTERED AGENT STREET ADDRESS]",
-    cityStateZip: "[CITY], CO [ZIP]",
+    line2: "1500 N GRANT ST STE R",
+    cityStateZip: "DENVER, CO 80203",
   },
 
   effectiveDate: "May 12, 2026",

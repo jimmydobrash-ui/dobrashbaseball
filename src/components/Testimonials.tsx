@@ -1,6 +1,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // TESTIMONIALS
-// Jimmy: replace the two placeholder entries below with real quotes when ready.
+// Jimmy: add more real quotes to this array as clients give them. The section
+// auto-adjusts its layout to the number of entries. Only put REAL testimonials
+// here — never placeholders (fake reviews are an FTC issue).
 // Each entry needs: quote, name, role (e.g. "Parent — 16U Catcher")
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -13,23 +15,16 @@ const testimonials = [
   },
   {
     quote:
-      "We can\u2019t recommend Coach Jimmy highly enough. He has worked with our 13-year-old for the past three years, and the progress has been incredible to watch. He brings a consistently positive attitude and focuses on helping each player improve, regardless of their starting point. Coach Jimmy has a great ability to fine-tune mechanics in a way that is easy for young athletes to understand and apply. The technology and training tools he uses are truly next level and have made a noticeable impact on development and performance. Coach Jimmy\u2019s dedication for arm care and recovery is also so important for this age and pitching sustainability. Beyond the technical side, he genuinely cares about his players and creates an encouraging environment that builds both confidence and skill. We are extremely grateful for Coach Jimmy.",
+      "We can't recommend Coach Jimmy highly enough. He has worked with our 13-year-old for the past three years, and the progress has been incredible to watch. He brings a consistently positive attitude and focuses on helping each player improve, regardless of their starting point. Coach Jimmy has a great ability to fine-tune mechanics in a way that is easy for young athletes to understand and apply. The technology and training tools he uses are truly next level and have made a noticeable impact on development and performance. Coach Jimmy's dedication for arm care and recovery is also so important for this age and pitching sustainability. Beyond the technical side, he genuinely cares about his players and creates an encouraging environment that builds both confidence and skill. We are extremely grateful for Coach Jimmy.",
     name: "Andrea M.",
-    role: "Parent \u2014 13U Pitcher",
-  },
-  {
-    // PLACEHOLDER — replace with a real testimonial
-    quote:
-      "Jimmy doesn't hand you a list of drills and call it a program. He actually builds something around your kid specifically. My son has a plan every single week and he's bought in because he knows exactly what he's working toward.",
-    name: "David K.",
-    role: "Parent — 14U Shortstop",
+    role: "Parent — 13U Pitcher",
   },
 ];
 
 function QuoteIcon() {
   return (
     <svg
-      className="w-6 h-6 text-diamond/40 flex-shrink-0"
+      className="w-8 h-8 text-diamond/40 flex-shrink-0"
       fill="currentColor"
       viewBox="0 0 24 24"
     >
@@ -38,7 +33,32 @@ function QuoteIcon() {
   );
 }
 
+function Stars() {
+  return (
+    <div className="flex items-center gap-1">
+      {[...Array(5)].map((_, i) => (
+        <svg
+          key={i}
+          className="w-4 h-4 text-diamond"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.539 1.118l-3.367-2.447a1 1 0 00-1.176 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.346 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.951-.69l1.286-3.957z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 export default function Testimonials() {
+  // Layout adapts to count: 1 = featured, 2 = two-up, 3+ = three-up grid.
+  const cols =
+    testimonials.length >= 3
+      ? "md:grid-cols-3"
+      : testimonials.length === 2
+        ? "md:grid-cols-2"
+        : "md:grid-cols-1";
+
   return (
     <section id="testimonials" className="bg-coal py-24 px-6 sm:px-10">
       <div className="max-w-7xl mx-auto">
@@ -51,24 +71,22 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-iron">
+        <div className={`grid grid-cols-1 ${cols} gap-px bg-iron`}>
           {testimonials.map((t, i) => (
             <div
               key={i}
               className="bg-coal p-10 flex flex-col gap-6 relative"
             >
-              {/* Top accent line on first card */}
               {i === 0 && (
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-diamond/60 to-transparent" />
               )}
-
-              <QuoteIcon />
-
+              <div className="flex items-center justify-between">
+                <QuoteIcon />
+                <Stars />
+              </div>
               <p className="text-silver font-body font-light text-base leading-relaxed flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
-
               <div className="border-t border-iron pt-6">
                 <p className="font-display font-bold text-white text-base uppercase tracking-wide">
                   {t.name}

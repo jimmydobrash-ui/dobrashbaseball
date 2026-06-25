@@ -2,6 +2,7 @@
 
 import { useState, FormEvent, useEffect } from "react";
 import Link from "next/link";
+import { track } from "@/lib/analytics";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Once you create your Calendly account, replace this URL with your real link.
@@ -58,6 +59,7 @@ export default function ApplicationForm() {
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
+        track.applySubmit();
         setStatus("success");
         form.reset();
       } else {
