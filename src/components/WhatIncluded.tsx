@@ -2,6 +2,10 @@ type Service = {
   title: string;
   description: string;
   tag?: string;
+  // If set, the first occurrence of `linkLabel` in the description renders as a
+  // link to `linkHref` (opens in a new tab to preserve the coaching funnel).
+  linkLabel?: string;
+  linkHref?: string;
 };
 
 const services: Service[] = [
@@ -28,6 +32,8 @@ const services: Service[] = [
   {
     title: "Custom Programming",
     tag: "Built In-House",
+    linkLabel: "DiamondReps",
+    linkHref: "https://diamondreps.app",
     description:
       "No templates. Every program is designed around where you are and where you need to go — then delivered through DiamondReps, my custom-built training app, so you can follow your daily plan, track your work, and stay on track between sessions.",
   },
@@ -37,6 +43,28 @@ const services: Service[] = [
       "Regular face-to-face check-ins to review progress, answer questions, adjust your program, and keep your development on track.",
   },
 ];
+
+function renderDescription(service: Service) {
+  const { description, linkLabel, linkHref } = service;
+  if (!linkLabel || !linkHref || !description.includes(linkLabel)) {
+    return description;
+  }
+  const [before, after] = description.split(linkLabel);
+  return (
+    <>
+      {before}
+      <a
+        href={linkHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-diamond underline underline-offset-2 hover:text-diamond-light transition-colors duration-200"
+      >
+        {linkLabel}
+      </a>
+      {after}
+    </>
+  );
+}
 
 function DiamondIcon() {
   return (
@@ -76,7 +104,7 @@ export default function WhatIncluded() {
                 )}
               </div>
               <p className="text-silver font-body font-light text-sm leading-relaxed pl-[1.375rem]">
-                {service.description}
+                {renderDescription(service)}
               </p>
             </div>
           ))}
