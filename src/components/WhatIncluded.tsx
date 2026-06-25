@@ -1,4 +1,10 @@
-const services = [
+type Service = {
+  title: string;
+  description: string;
+  tag?: string;
+};
+
+const services: Service[] = [
   {
     title: "1-on-1 Remote Training",
     description:
@@ -21,8 +27,9 @@ const services = [
   },
   {
     title: "Custom Programming",
+    tag: "Built In-House",
     description:
-      "No templates. Every program is designed around where you are and where you need to go — built weekly, adjusted constantly.",
+      "No templates. Every program is designed around where you are and where you need to go — then delivered through my own custom-built training app, so you can follow your daily plan, track your work, and stay on track between sessions.",
   },
   {
     title: "Bi-Weekly Video Calls",
@@ -62,6 +69,11 @@ export default function WhatIncluded() {
                 <h3 className="font-display font-bold text-white text-[1.1rem] uppercase tracking-wide">
                   {service.title}
                 </h3>
+                {service.tag && (
+                  <span className="ml-auto bg-diamond/10 border border-diamond/40 text-diamond font-display font-bold text-[9px] uppercase tracking-[0.15em] px-2 py-1 whitespace-nowrap">
+                    {service.tag}
+                  </span>
+                )}
               </div>
               <p className="text-silver font-body font-light text-sm leading-relaxed pl-[1.375rem]">
                 {service.description}
