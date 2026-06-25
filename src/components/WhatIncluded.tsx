@@ -29,7 +29,7 @@ const services: Service[] = [
     title: "Custom Programming",
     tag: "Built In-House",
     description:
-      "No templates. Every program is designed around where you are and where you need to go — then delivered through my own custom-built training app, so you can follow your daily plan, track your work, and stay on track between sessions.",
+      "No templates. Every program is designed around where you are and where you need to go — then delivered through DiamondReps, my custom-built training app, so you can follow your daily plan, track your work, and stay on track between sessions.",
   },
   {
     title: "Bi-Weekly Video Calls",
